@@ -1,0 +1,8 @@
+2     	delta   	72
+0     	x1	      2,121320344
+-9     	x2	      -2,121320344
+
+
+delta = SE(A1=0;"O valor de a é 0";(A2*A2)-4*(A1*A3))
+x1 = SE(C1="O valor de a é 0";"O valor de a é 0";SE(C1<0;"Delta negativo";SE(C1=0;-A2/(2*A1);(-A2+RAIZ(C1))/(2*A1))))
+x2 = SE(C1="O valor de a é 0";"O valor de a é 0";SE(C1<0;"Delta negativo";SE(C1=0;-A2/(2*A1);(-A2-RAIZ(C1))/(2*A1))))
