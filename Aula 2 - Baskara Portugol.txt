@@ -1,0 +1,81 @@
+
+Algoritmo "Baskara"
+
+Var 
+	a, b, c, x1, x2, delta : Real
+	
+Inicio
+
+	escreval ("Digite o Valor de 'A': ")
+	leia(a)
+
+	escreval ("Digite o Valor de 'B': ")
+	leia(b)
+
+	escreval ("Digite o Valor de 'C': ")
+	leia(c)
+
+	se(a = 0) entao
+
+		escreval ("O valor de 'A' é igual a 0")
+		
+	senao
+		
+		delta <- (b * b) - 4 * a * c
+			
+		se(delta < 0) entao
+		
+			escreval ("O valor de Delta é negativo, e igual a ",delta)
+			
+		senao
+		
+			se(delta = 0) entao
+			
+				x1 <- -b / (2 * a)
+			
+				escreval ("O valor de Delta é igual a 0, e o valor de X1 e X2 é igual a ",x1)
+			
+			senao
+			
+				x1 <- (-b + RaizQ( delta )) / (2 * a)
+				
+				x2 <- (-b - RaizQ( delta )) / (2 * a)
+			
+				escreval ("O valor de Delta é igual a ",delta,", o valor de X1 é ",x1," e o valor de X2 é igual a ",x2)
+			
+			fimse
+		
+		fimse
+
+	fimse
+
+Fimalgoritmo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
