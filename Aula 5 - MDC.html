@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Aula 5 - MDC</title>
+</head>
+<body>
+
+
+<form action="aaa" id="formulario" onsubmit="if (!(todoCodigo() == 12)) return false;">
+
+	<label>Valor de a: <input type="number" name="value_a" /></label>
+	
+	<br/><br/>
+	
+	<label>Valor de b: <input type="number" name="value_b" /></label>
+	
+	<br/><br/>
+	
+	<input type="submit" value="Testar" />
+	
+	<h1 id="mdc"></h1>
+
+</form>
+
+<script>
+	function todoCodigo(){
+		
+		var form = document.getElementById("formulario");
+		var h1 = document.getElementById("mdc");
+		
+		var a = form.value_a.value;
+		var b = form.value_b.value;
+		var c;
+		
+		if( a < b ){
+			c = b;
+			b = a;
+			a = c;
+		}
+		
+		while(b > 0){
+			c = a % b;
+			a = b;
+			b = c;
+		}
+		
+		h1.style.color = "blue";
+		h1.style.fontSize = "3em";
+		h1.innerHTML = "O valor do MDC é: " + a;
+		
+	}
+</script>
+</body>
+</html>
