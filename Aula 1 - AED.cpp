@@ -26,8 +26,45 @@ int main(int argc, char** argv) {
 	//readFile();
 	//execStruct();
 	//outro(argc, argv);	
-	commandLine(argc, argv);
+	//commandLine(argc, argv);
 	
+	char *nome;
+	int telefone; 
+	
+	Dados a, b, c;
+	
+	printf("Qual seu nome?\n");
+	scanf("%s", nome);
+	printf("\nQual seu telefone?\n");
+	scanf("%d", &telefone);
+	a = loadDados(nome, telefone, 0);
+	system("cls");
+	
+	printf("Qual seu nome?\n");
+	scanf("%s", nome);
+	printf("\nQual seu telefone?\n");
+	scanf("%d", &telefone);
+	b = loadDados(nome, telefone, &a);
+	system("cls");
+	
+	printf("Qual seu nome?\n");
+	scanf("%s", nome);
+	printf("\nQual seu telefone?\n");
+	scanf("%d", &telefone);
+	c = loadDados(nome, telefone, &b);
+	system("cls");
+	
+	printDado(a);
+	
+	printDado(b);
+	
+	printDado(c);
+	
+	printf("\nPonteiro de B:");
+	printDado(*b.next);
+	
+	printf("\nPonteiro de C:");
+	printDado(*c.next);
 	
 	system("EXIT");
 }
@@ -112,9 +149,10 @@ Dados loadDados(char* nome, int telefone, lista* next){
 }
 
 void printDado(Dados dado){
-	printf("\n");
+	printf("\n------------------------------------------------\n");
+	printf("Este Aluno tem como informacoes: \n");
 	printf("O nome e %s\n", dado.nome);
 	printf("O telefone e %d\n", dado.telefone);
-	printf("O next e %d\n", dado.next);
-	printf("\n");
+	printf("O next e %d", dado.next);
+	printf("\n------------------------------------------------\n");
 }
