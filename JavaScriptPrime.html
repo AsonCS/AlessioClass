@@ -76,8 +76,17 @@
         .reduce((accumulator, currentValue) => {
             return accumulator + " - " + currentValue;
         })
+        
+        var hashValue = (primeNumbers[4] - (primeNumbers[4] % primeNumbers.length)) / primeNumbers.length
+        
+        primeNumbers[primeNumbers.length] = primeNumbers[hashValue]
+        
+        var primesString3 = primeNumbers
+        .reduce((accumulator, currentValue) => {
+            return accumulator + " - " + currentValue;
+        })
 		
-		result.innerHTML = primesString  + "<br/><br/>" + meanString + "<br/><br/>" + primesString2 + "<br/><br/>"
+		result.innerHTML = primesString  + "<br/><br/>" + meanString + "<br/><br/>" + primesString2 + "<br/><br/>" + hashValue + "<br/><br/>" + primesString3 + "<br/><br/>"
 		
 		
 		
