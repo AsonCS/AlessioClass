@@ -24,7 +24,16 @@
 <div id="body" class="container-fluid">
 
 <form action="#" id="formulario" onsubmit="if (!(todoCodigo() == true)) return false;">
-	<input type="submit" value="Testar" />
+	<input hidden type="submit" value="Testar" />
+	
+	<div class="alert alert-secondary" role="alert">
+		<label><b>Valor da lista entre</b>: &nbsp;&nbsp;<input type="number" name="value_a" /></label><br/>
+		<label><b>E</b>: &nbsp;&nbsp;<input type="number" name="value_b" /></label>
+	</div>
+	
+	<div class="alert alert-secondary" role="alert">
+		<label><b>Posição do elemento</b>: &nbsp;&nbsp;<input type="number" name="value_c" min="2" /></label>
+	</div>
 	
 	<div id="result" class="alert alert-success" role="alert">
 		<p id="result" ></p>
@@ -40,7 +49,7 @@
 		var primeNumbers = [];
 		var temp;
 		
-		for(var i = 2; i < 100; i++){
+		for(var i = 2; i < parseInt(form.value_b.value); i++){
 			temp = -1
 			primeNumbers.forEach((element, index, array) => {
                 if(i % element == 0){
@@ -53,7 +62,7 @@
 		}
 		
 		primeNumbers = primeNumbers.filter((value) => {
-            return value > 49;
+            return value > parseInt(form.value_a.value);
         })
 		
 		var primesString = primeNumbers
@@ -73,7 +82,9 @@
             return accumulator + " - " + currentValue;
         })
         
-        var hashValue = primeNumbers[4] % primeNumbers.length
+        var posicao = parseInt(form.value_c.value) - 1 >= primeNumbers.length ? primeNumbers.length - 1 : parseInt(form.value_c.value) - 1
+        
+        var hashValue = primeNumbers[posicao] % primeNumbers.length
         
         primeNumbers[primeNumbers.length - 1] = primeNumbers[hashValue]
         
@@ -82,8 +93,8 @@
             return accumulator + " - " + currentValue;
         })
 		
-		result.innerHTML = primesString  + "<br/><br/>" + meanString + "<br/><br/>" + primesString2 + "<br/><br/>" + hashValue + "<br/><br/>" + primesString3 + "<br/><br/>"
-		
+		result.innerHTML = "Array original: " + primesString  + "<br/><br/>Média: " + meanString + "<br/><br/>Array com média: " + primesString2 + "<br/><br/>Resto da divisão: " + hashValue + "<br/><br/>Array final: " + primesString3 + "<br/><br/>"
+		// */
 		
 		
 	}
