@@ -40,19 +40,15 @@
 		var primeNumbers = [];
 		var temp;
 		
-		for(var i = 2; i <= 100; i++){
-			if(i == 2){
+		for(var i = 2; i < 100; i++){
+			temp = -1
+			primeNumbers.forEach((element, index, array) => {
+                if(i % element == 0){
+					temp = 0
+				}
+			})
+			if(temp == -1){
 				primeNumbers.push(i)
-			}else{
-				temp = -1
-				primeNumbers.forEach((element, index, array) => {
-                    if(i % element == 0){
-						temp = 0
-					}
-				})
-				if(temp == -1){
-					primeNumbers.push(i)
-			    }
 			}
 		}
 		
@@ -77,9 +73,9 @@
             return accumulator + " - " + currentValue;
         })
         
-        var hashValue = (primeNumbers[4] - (primeNumbers[4] % primeNumbers.length)) / primeNumbers.length
+        var hashValue = primeNumbers[4] % primeNumbers.length
         
-        primeNumbers[primeNumbers.length] = primeNumbers[hashValue]
+        primeNumbers[primeNumbers.length - 1] = primeNumbers[hashValue]
         
         var primesString3 = primeNumbers
         .reduce((accumulator, currentValue) => {
