@@ -24,16 +24,17 @@
 <div id="body" class="container-fluid">
 
 <form action="#" id="formulario" onsubmit="if (!(todoCodigo() == true)) return false;">
+	
+	<div class="alert alert-secondary" role="alert">
+		<label><b>Valor da lista entre</b>: &nbsp;&nbsp;<input type="number" name="valor_minimo" value="49" required /></label><br/>
+		<label><b>E</b>: &nbsp;&nbsp;<input type="number" name="valor_maximo" value="100" required /></label>
+	</div>
+	
+	<div class="alert alert-secondary" role="alert">
+		<label><b>Posição do elemento</b>: &nbsp;&nbsp;<input type="number" name="valor_posicao" min="2" value="5" required /></label>
+	</div>
+	
 	<input hidden type="submit" value="Testar" />
-	
-	<div class="alert alert-secondary" role="alert">
-		<label><b>Valor da lista entre</b>: &nbsp;&nbsp;<input type="number" name="value_a" /></label><br/>
-		<label><b>E</b>: &nbsp;&nbsp;<input type="number" name="value_b" /></label>
-	</div>
-	
-	<div class="alert alert-secondary" role="alert">
-		<label><b>Posição do elemento</b>: &nbsp;&nbsp;<input type="number" name="value_c" min="2" /></label>
-	</div>
 	
 	<div id="result" class="alert alert-success" role="alert">
 		<p id="result" ></p>
@@ -46,54 +47,77 @@
 		
 		var form = document.getElementById("formulario");
 		var result = document.getElementById("result");
-		var primeNumbers = [];
+		var numeros_primos = [];
+		var valor_minimo = parseInt(form.valor_minimo.value);
+		var valor_maximo = parseInt(form.valor_maximo.value);
+		var valor_posicao = 0;
 		var temp;
 		
-		for(var i = 2; i < parseInt(form.value_b.value); i++){
+		for(var i = 2; i < valor_maximo; i++){
 			temp = -1
-			primeNumbers.forEach((element, index, array) => {
+			numeros_primos.forEach((element, index, array) => {
                 if(i % element == 0){
 					temp = 0
 				}
 			})
 			if(temp == -1){
-				primeNumbers.push(i)
+				numeros_primos.push(i)
 			}
 		}
 		
-		primeNumbers = primeNumbers.filter((value) => {
-            return value > parseInt(form.value_a.value);
-        })
+		if(numeros_primos.length == 0) return 0;
 		
-		var primesString = primeNumbers
-        .reduce((accumulator, currentValue) => {
-            return accumulator + " - " + currentValue;
-        })
-        
-        var meanString = (primeNumbers
-        .reduce((accumulator, currentValue) => {
-            return accumulator + currentValue;
-        }) / primeNumbers.length)
-        
-        primeNumbers[0] = meanString;
-        
-        var primesString2 = primeNumbers
-        .reduce((accumulator, currentValue) => {
-            return accumulator + " - " + currentValue;
-        })
-        
-        var posicao = parseInt(form.value_c.value) - 1 >= primeNumbers.length ? primeNumbers.length - 1 : parseInt(form.value_c.value) - 1
-        
-        var hashValue = primeNumbers[posicao] % primeNumbers.length
-        
-        primeNumbers[primeNumbers.length - 1] = primeNumbers[hashValue]
-        
-        var primesString3 = primeNumbers
-        .reduce((accumulator, currentValue) => {
-            return accumulator + " - " + currentValue;
-        })
+		numeros_primos = numeros_primos.filter((value) => {
+            return value > parseInt(form.valor_minimo.value);
+        });
 		
-		result.innerHTML = "Array original: " + primesString  + "<br/><br/>Média: " + meanString + "<br/><br/>Array com média: " + primesString2 + "<br/><br/>Resto da divisão: " + hashValue + "<br/><br/>Array final: " + primesString3 + "<br/><br/>"
+		if(parseInt(form.valor_posicao.value) - 1 >= numeros_primos.length){
+			valor_posicao = numeros_primos.length - 1;
+		}else if(parseInt(form.valor_posicao.value) - 1 > 0){
+			valor_posicao = parseInt(form.valor_posicao.value) - 1;
+		}
+		
+		if(numeros_primos.length == 0) return 0;
+		
+		var array_de_primos = numeros_primos.reduce(
+			(accumulator, currentValue) => {
+				return accumulator + " - " + currentValue;
+			}
+		);
+        
+        var valor_media = (numeros_primos.reduce(
+			(accumulator, currentValue) => {
+				return accumulator + currentValue;
+			}
+		) / numeros_primos.length);
+        
+        numeros_primos[0] = valor_media;
+        
+        var array_de_primos2 = numeros_primos.reduce(
+			(accumulator, currentValue) => {
+				return accumulator + " - " + currentValue;
+			}
+		);
+        
+        var valor_resto = numeros_primos[valor_posicao] % numeros_primos.length
+        
+        numeros_primos[numeros_primos.length - 1] = numeros_primos[valor_resto]
+        
+        var array_de_primos3 = numeros_primos.reduce(
+			(accumulator, currentValue) => {
+				return accumulator + " - " + currentValue;
+			}
+		);
+		
+		result.innerHTML  = "Array original: " + array_de_primos;
+		result.innerHTML += "<br/>---------------------------------------------------------------<br/>";
+		result.innerHTML += "Média: " + valor_media;
+		result.innerHTML += "<br/>---------------------------------------------------------------<br/>";
+		result.innerHTML += "Array com média: " + array_de_primos2;
+		result.innerHTML += "<br/>---------------------------------------------------------------<br/>";
+		result.innerHTML += "Resto da divisão: " + valor_resto;
+		result.innerHTML += "<br/>---------------------------------------------------------------<br/>";
+		result.innerHTML += "Array final: " + array_de_primos3;
 		// */
 		
 		
