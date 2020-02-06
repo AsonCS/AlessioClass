@@ -1,0 +1,104 @@
+abd test.txt
+
+adb shell
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 400 200 1000 500
+sleep 1
+input swipe 200 400 200 1000 500
+sleep 1
+input tap 450 800
+sleep 5
+input tap 350 600
+sleep 10
+exitadb shell
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 400 200 1000 500
+sleep 1
+input swipe 200 400 200 1000 500
+sleep 1
+input tap 450 800
+sleep 5
+input tap 350 600
+sleep 10
+exit
+adb exec-out screencap -p > screen.png
+sleep 1
+adb shell
+sleep 9
+input keyevent 4
+sleep 1
+input keyevent 4
+
+
+
+adb shell input swipe 200 1000 200 500 500
+timeout 2
+adb shell input swipe 200 1000 200 500 500
+
+-----------------------------------------------------------------------------
+
+test.bat
+
+adb shell
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 400 200 1000 500
+sleep 1
+input swipe 200 400 200 1000 500
+sleep 1
+input tap 450 800
+sleep 5
+input tap 350 600
+sleep 10
+exitadb shell
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 1000 200 400 500
+sleep 1
+input swipe 200 400 200 1000 500
+sleep 1
+input swipe 200 400 200 1000 500
+sleep 1
+input tap 450 800
+sleep 5
+input tap 350 600
+sleep 10
+exit
+adb exec-out screencap -p > screen.png
+sleep 1
+adb shell
+sleep 9
+input keyevent 4
+sleep 1
+input keyevent 4
+
+
+
+adb shell input swipe 200 1000 200 500 500
+timeout 2
+adb shell input swipe 200 1000 200 500 500
+
