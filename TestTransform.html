@@ -1,5 +1,7 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>Test Transform</title>
-<style>#body{width:80vw;margin:auto;margin-top:3vh;}</style><script>function main(password){let result = "";for(let i=0;i<password.length;i++){if(password[i]==='*'){result=passwordMap[password];break;}else if(password[i].toLowerCase()!==password[i]){result+=passwordMap[password[i].toLowerCase()].toUpperCase()}else{result+=passwordMap[password[i]]}}document.getElementById("result").innerHTML=result}
+<!DOCTYPE html><html><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>Password Transform</title>
+<style>#body{width:80vw;margin:auto;margin-top:3vh;}</style><script>
+function main(password){let result = "";for(let i=0;i<password.length;i++){if(password[i]==='*'){result=passwordMap[password];break;}else if(password[i].toLowerCase()!==password[i]){result+=passwordMap[password[i].toLowerCase()].toUpperCase()}else{result+=passwordMap[password[i]]}}document.getElementById("result").value=result;document.getElementById("copied").value="";}
+function copy() {var copyText=document.getElementById("result");copyText.disabled=false;copyText.select();copyText.setSelectionRange(0,99999);document.execCommand("copy");copyText.disabled=true;document.getElementById("copied").value="Copied"}
 var passwordMap = {
 	"*1": "WEtmac2&", "*2": "WEtmac29", "*3": "wetmac27", "*4": "WEtmac27", "*5": "wetmac",
 	"a": "c0@",       "b": "d1#",       "c": "e2&",       "d": "f3@",       "e": "g4#",
@@ -11,5 +13,5 @@ var passwordMap = {
 	"4": "6",         "5": "7",         "6": "8",         "7": "9",         "8": "0",
 	"9": "1"
 };</script></head><body><div id="body">
-<form action="#"id="formulario"><input type="text"id="password"placeholder="Value"/><input type="submit"value="Submit"/><p id="result"></p></form>
+<form action="#"id="formulario"><input type="text"id="password"placeholder="Value"size="5"/><input type="submit"value="Submit"/><input type="button"value="Copy"onclick="copy()"/><input id="result"type="text"value=""size="12"disabled/><input id="copied"type="text"value=""size="6"disabled/></form></form>
 <script>document.getElementById("formulario").addEventListener('submit',(event)=>{event.preventDefault();main(event.target.password.value)})</script></div></body></html>
