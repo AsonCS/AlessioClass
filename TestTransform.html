@@ -13,5 +13,5 @@ var passwordMap = {
 	"4": "6",         "5": "7",         "6": "8",         "7": "9",         "8": "0",
 	"9": "1"
 };</script></head><body><div id="body">
-<form action="#"id="formulario"><input type="text"id="password"placeholder="Value"size="5"/><input type="submit"value="Submit"/><input type="button"value="Copy"onclick="copy()"/><input id="result"type="text"value=""size="12"disabled/><input id="copied"type="text"value=""size="6"disabled/></form></form>
+<form action="#"id="formulario"><input type="text"id="password"placeholder="Value"size="5"/><input type="submit"value="Submit"/><input type="button"value="Copy"onclick="copy()"/><br/><input id="result"type="text"value=""size="12"disabled/><input id="copied"type="text"value=""size="6"disabled/></form></form>
 <script>document.getElementById("formulario").addEventListener('submit',(event)=>{event.preventDefault();main(event.target.password.value)})</script></div></body></html>
