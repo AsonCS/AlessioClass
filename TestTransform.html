@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>Password Transform</title>
+<!DOCTYPE html><html><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>Test Transform</title>
 <style>#body{width:80vw;margin:auto;margin-top:3vh;}</style><script>function main(password){let result = "";for(let i=0;i<password.length;i++){if(password[i]==='*'){result=passwordMap[password];break;}else if(password[i].toLowerCase()!==password[i]){result+=passwordMap[password[i].toLowerCase()].toUpperCase()}else{result+=passwordMap[password[i]]}}document.getElementById("result").innerHTML=result}
 var passwordMap = {
 	"*1": "WEtmac2&", "*2": "WEtmac29", "*3": "wetmac27", "*4": "WEtmac27", "*5": "wetmac",
